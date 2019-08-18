@@ -36,9 +36,10 @@ type queueService struct {
 }
 
 type qMsg struct {
-	msgWrap *common.MsgWrap
-	seq     uint64
-	accId   string
+	msgWrap   *common.MsgWrap
+	seq       uint64
+	accId     string
+	lastIndex uint64
 }
 
 // singletone
@@ -197,7 +198,7 @@ func (service *queueService) PushLoginMsg(session *common.Session, msgWrap *comm
 	if ok {
 		channel <- msgWrap
 
-		qmsg := &qMsg{msgWrap, service.NextSeqId(), cglm.AccId}
+		qmsg := &qMsg{msgWrap, service.NextSeqId(), cglm.AccId, 0}
 		service.msgMap.LoadOrStore(qmsg.accId, qmsg)
 		log.Printf("PushLoginMsg to queueSerice channel ok ch_len=%d , data= %#v\n", len(channel), msgWrap.Data())
 
@@ -227,10 +228,10 @@ func (service *queueService) onTickCheckQueue() {
 		return
 	}
 
-	//
+	// time reached
 	pastTime := (now - service.checkTime) * time.Millisecond.Nanoseconds()
 	if pastTime >= common.QueueCheckInterval*time.Second.Nanoseconds() {
-		log.Printf("queueService onTickCheckQueue will broadcastQueueIndexs \n")
+		log.Printf("queueService onTickCheckQueue trigger broadcastQueueIndexs \n")
 		service.checkTime = now
 		service.broadcastQueueIndexs()
 	}
@@ -240,6 +241,7 @@ func (service *queueService) onTickCheckQueue() {
 // queueIndex = obj.seq - finishedSeq
 func (service *queueService) broadcastQueueIndexs() error {
 	//
+	nowFinishedSeq := service.GetFinishedSeqId()
 	service.msgMap.Range(func(k interface{}, v interface{}) bool {
 		if k != nil {
 			_, ok := k.(string)
@@ -254,8 +256,12 @@ func (service *queueService) broadcastQueueIndexs() error {
 			// calculate queueIndex
 			// eg: player got a seq 128 when be added to the queue, now then current finished seq 100.
 			// so queue index is 28 = (128-100)
-			index := value.seq - service.GetFinishedSeqId()
-			if index > 0 {
+			index := value.seq - nowFinishedSeq
+			indexChanged := (index != value.lastIndex)
+
+			// only feedback when position changed
+			if indexChanged {
+				value.lastIndex = index
 				queueIndex := int32(index & 0x7FFFFFFF)
 				cglm, ook := value.msgWrap.Data().(*proto.CG_LonginMessage)
 				session := value.msgWrap.Session()
