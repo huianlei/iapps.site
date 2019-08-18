@@ -85,3 +85,7 @@ go run app.go
 	
 </code>
 
+## 参考资料
+<p><a href="https://tour.go-zh.org/list">Go 指南</a></p>
+<p><a href="https://segmentfault.com/a/1190000014733620">Go语言TCP/IP网络编程</a></p>
+<p><a href="https://tiancaiamao.gitbooks.io/go-internals/content/zh/">深入解析Go</a></p>
