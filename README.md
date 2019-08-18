@@ -3,7 +3,7 @@ A practise project written by golang
 
 ## 概述
 
-* 本程序服务器和客户端使用Golang开发。需求见下文【开发要求】部分
+* 本程序服务器和客户端使用Golang开发。需求见工程readme.txt中【开发要求】部分
 * 程序流程说明：
 服务器监听Tcp端口（默认9001），接受客户端连接。
 客户端连接服务器后，发起CGLoginMessage登录消息，服务器收到登录消息后，将消息push 到QueueService的消息队列中(channel)，实现登录排队同时，负责账号Token验证的多个goroutine，从channel中读取登录消息，验证（最小化模拟sleep 100 ms）成功后，添加到PlayerManager中，表示玩家登录成功。
