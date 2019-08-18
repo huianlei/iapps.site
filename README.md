@@ -39,36 +39,39 @@ sh server_start.sh  // 启动服务器前台运行，Ctrl+C 终止运行 <br />
 注意：上述脚本为先编译源码，再运行方式。方便修改配置参数后，重新运行。
 
 ## 配置常量说明
+常量配置文件目录： iapps.site/common/common.go
+可根据压测数据调整下列参数。
 <code>
-// -----------------------------------------------------------------------
- constant config start
- you can modify these const
-// -----------------------------------------------------------------------
-// PlayerManager const config
-const (
-	// max online player count 
-	// 最大同时在线人数,达到最大在线后，不再消费登录队列消息，除非有玩家退出（这个时间关系，尚未模拟）
-	MaxOnline int32 = 1000
-)
+	// -----------------------------------------------------------------------
+	 constant config start
+	 you can modify these const
+	// -----------------------------------------------------------------------
+	// PlayerManager const config
+	const (
+		// max online player count 
+		// 最大同时在线人数,达到最大在线后，不再消费登录队列消息，除非有玩家退出（这个时间关系，尚未模拟）
+		MaxOnline int32 = 1000
+	)
 
-// QueueService const config
-const (
-	// tick milliseconds
-	TickInterval = int64(100)
-	// queue service channel capacity  
-	// 登录排队队列容量，超出容量则直接给客户端提示 queue full
-	QueueCapacity = int(500)
-	// check interval to broadcast position in queue. in seconds
-	// 登录队列扫描时间间隔：秒。对于排队的客户端，定期同步给客户端排队的位置
-	QueueCheckInterval = int64(3)
-)
+	// QueueService const config
+	const (
+		// tick milliseconds
+		TickInterval = int64(100)
+		// queue service channel capacity  
+		// 登录排队队列容量，超出容量则直接给客户端提示 queue full
+		QueueCapacity = int(500)
+		// check interval to broadcast position in queue. in seconds
+		// 登录队列扫描时间间隔：秒。对于排队的客户端，定期同步给客户端排队的位置
+		QueueCheckInterval = int64(3)
+	)
 
-// TcpServer const
-const (
-	// Listen port
-	Port = ":9001"
-	// simulate validate token sleep time in milliseconds
-	// 模拟登录Token校验的时间消耗：毫秒
-	ValidateTokenSleep = int64(100)
-)	
+	// TcpServer const
+	const (
+		// Listen port
+		Port = ":9001"
+		// simulate validate token sleep time in milliseconds
+		// 模拟登录Token校验的时间消耗：毫秒
+		ValidateTokenSleep = int64(100)
+	)	
 </code>
+
