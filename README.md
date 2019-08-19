@@ -14,9 +14,10 @@ A practise project written by golang
 最大同时在线人数限制，超出后，不在消费等待队列中的数据，除非有在线玩家退出（时间关系暂未模拟在线玩家退出）
 </pre>
 ## 环境要求
-Windows/Linux <br /> 
-Go1.9+ <br />
-
+<pre>
+Windows/Linux
+Go1.9+
+</pre>
 ## 安装部署
 部署前请正确安装Golang，并正确设置Path环境变量，确保go version 命令运行OK。<br />
 如有疑问请 google golang 安装，并请正确设置GOPATH环境变量。<br />
