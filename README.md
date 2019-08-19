@@ -70,7 +70,7 @@ go run app.go
 		// 登录排队队列容量，超出容量则直接给客户端提示 queue full
 		QueueCapacity = int(500)
 		// check interval to broadcast position in queue. in seconds
-		// 登录队列扫描时间间隔：秒。对于排队的客户端，定期同步给客户端排队的位置
+		// 登录队列扫描时间间隔：秒。对于排队的客户端，发生变化后，定期同步给客户端排队的位置
 		QueueCheckInterval = int64(3)
 	)
 
