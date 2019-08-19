@@ -111,12 +111,8 @@ Intel CoreI7  ， 6核心  12个逻辑内核
 总连接数：	13000 
 并发连接数：200
 次并发连接下，会出现排队，位置更新后推送排队位置
-
-app			 pid 			初始内存		稳定内存		CPU峰值
-server 		26460			8056K			397064K			5.1%
-
 <table>
-<th><td>PID</td><td>初始内存</td><td>稳定内存</td><td>CPU峰值</td></th>
+<tr><td>PID</td><td>初始内存</td><td>稳定内存</td><td>CPU峰值</td></tr>
 <tr><td>26460</td><td>8056K</td><td>397064K</td><td>5.1%</td></tr>
 </table>
 </pre>												
