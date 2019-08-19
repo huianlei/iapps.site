@@ -9,6 +9,7 @@ import (
 	"io"
 	"log"
 	"net"
+	"runtime"
 	"sync"
 	"time"
 
@@ -69,6 +70,8 @@ func (e *tcpServer) Listen() error {
 		// one conn one gorutine and write message to channel
 		go e.handleMessages(conn)
 	}
+	log.Println("Server NumCPU=", runtime.NumCPU())
+	return nil
 }
 
 // handleMessages reads the connection up to the first newline.

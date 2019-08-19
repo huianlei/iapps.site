@@ -20,7 +20,7 @@ import (
 // PlayerManager const config
 const (
 	// max online player count
-	MaxOnline int32 = 1000
+	MaxOnline int32 = 20000
 )
 
 // QueueService const config
@@ -28,9 +28,9 @@ const (
 	// tick milliseconds
 	TickInterval = int64(100)
 	// queue service channel capacity
-	QueueCapacity = int(500)
+	QueueCapacity = int(10000)
 	// check interval to broadcast position in queue. in seconds
-	QueueCheckInterval = int64(3)
+	QueueCheckInterval = int64(2)
 )
 
 // TcpServer const
