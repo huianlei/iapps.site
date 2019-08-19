@@ -114,6 +114,11 @@ Intel CoreI7  ， 6核心  12个逻辑内核
 
 app			 pid 			初始内存		稳定内存		CPU峰值
 server 		26460			8056K			397064K			5.1%
+
+<table>
+<th><td>PID</td><td>初始内存</td><td>稳定内存</td><td>CPU峰值</td></th>
+<tr><td>26460</td><td>8056K</td><td>397064K</td><td>5.1%</td></tr>
+</table>
 </pre>												
 
 * 结论：
