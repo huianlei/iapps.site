@@ -29,6 +29,17 @@ Go1.9+
 
 </code>
 将本工程下载到src目录下，则 E:\develop\golang\src\iapps.site，此目录即为程序脚本工作目录
+<pre>
+通过github下载本工程源码方式如下
+使用git命令行下载
+git clone https://github.com/huianlei/iapps.site.git
+通过工程界面Clone or Download下载 zip 包
+https://github.com/huianlei/iapps.site/archive/master.zip
+确保加压后的目录为iapps.site
+windows下完整路径为：%GOPATH%\src\iapps.site
+linux 下完整路径为：$GOPATH/src/iapps.site
+GOPATH 为上文提到的环境变量
+</pre>
 
 ## 如何使用
 * on Windows
