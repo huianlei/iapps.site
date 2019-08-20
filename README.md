@@ -44,18 +44,19 @@ GOPATH 为上文提到的环境变量
 * on Windows
 <pre>
 运行服务器
-	双击 win_server_start.bat 运行服务器
-	或者命令行模式下，cd 当前目录输入以下命令：
-	go run app.go 
+ 双击 win_server_start.bat 运行服务器
+ 或者命令行模式下，cd 当前目录输入以下命令：
+ go run app.go 
 运行客户端
-	双击 win_client_start.bat 运行压测客户端（如需调整参数，请自行修改此脚本，或者直接运行下面的命令）
-	或者命令行模式下，cd 当前目录输入以下命令:（开启10000个客户端连接，每秒并发200个，参数可根据需要调整）
-	go run app.go -connect localhost:9001 -count 10000 -concurrent 200	
+ 双击 win_client_start.bat 运行压测客户端（如需调整参数，请自行修改此脚本，或者直接运行下面的命令）
+ 或者命令行模式下，cd 当前目录输入以下命令:（开启10000个客户端连接，每秒并发200个，参数可根据需要调整）
+ go run app.go -connect localhost:9001 -count 10000 -concurrent 200	
 </pre>
 * on Linux
 <pre>
-cd iapps.site <br />
-sh server_start.sh  // 启动服务器前台运行，Ctrl+C 终止运行 <br />
+cd iapps.site
+sh server_start.sh  // 启动服务器前台运行，终端 Ctrl+C 终止运行
+sh client_start.sh  // 启动客户端前台运行，终端 Ctrl+C 终止运行
 </pre>
 注意：上述脚本为先编译源码，再运行方式。方便修改配置参数后，重新运行。
 
