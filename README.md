@@ -1,5 +1,5 @@
 # iapps.site
-A practise project written  golang
+A practise project written  with golang
 
 ## 概述
 
