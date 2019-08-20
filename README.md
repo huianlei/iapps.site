@@ -22,13 +22,12 @@ Go1.9+
 部署前请正确安装Golang，并正确设置Path环境变量，确保go version 命令运行OK。<br />
 如有疑问请 google golang 安装，并请正确设置GOPATH环境变量。<br />
 以笔者GOPATH=E:\develop\golang 为例<br />
-<code>
-	
+<pre>	
 	mkdir -p E:\develop\golang\src
 	cd /d E:\develop\golang\src
-
-</code>
+</pre>
 将本工程下载到src目录下，则 E:\develop\golang\src\iapps.site，此目录即为程序脚本工作目录
+## 通过github下载运行
 <pre>
 通过github下载本工程源码方式如下
 使用git命令行下载
@@ -50,24 +49,24 @@ go run app.go
 ** 运行客户端
 双击 win_client_start.bat 运行压测客户端（如需调整参数，请自行修改，或者直接运行下面的命令）<br />
 或者命令行模式下，cd 当前目录输入以下命令:（开启10000个客户端连接，每秒并发200个）<br />
-<code>
+<pre>
 	
 	go run app.go -connect localhost:9001 -count 10000 -concurrent 200
 	
-</code>
+</pre>
 * on Linux
-<code>
+<pre>
 	
 	cd iapps.site <br />
 	sh server_start.sh  // 启动服务器前台运行，Ctrl+C 终止运行 <br />
 
-</code>
+</pre>
 注意：上述脚本为先编译源码，再运行方式。方便修改配置参数后，重新运行。
 
 ## 配置常量说明
 常量配置文件目录： iapps.site/common/common.go <br/>
 可根据压测数据调整下列参数。
-<code>
+<pre>
 	
 	// PlayerManager const config
 	const (
@@ -97,7 +96,7 @@ go run app.go
 		ValidateTokenSleep = int64(100)
 	)
 	
-</code>
+</pre>
 
 ## 压力测试
 * 测试环境及模式：
