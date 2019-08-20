@@ -131,5 +131,5 @@ Intel CoreI7  ， 6核心  12个逻辑内核
 ## 参考资料
 <p><a href="https://tour.go-zh.org/list">Go 指南</a></p>
 <p><a href="https://segmentfault.com/a/1190000014733620">Go语言TCP/IP网络编程</a></p>
-<p><a href="https://go-zh.org/pkg/>Go中文标准库</p>
+<p><a href="https://go-zh.org/pkg/>Go中文标准库</a></p>
 <p><a href="https://tiancaiamao.gitbooks.io/go-internals/content/zh/">深入解析Go</a></p>
