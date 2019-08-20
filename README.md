@@ -23,8 +23,8 @@ Go1.9+
 如有疑问请 google golang 安装，并请正确设置GOPATH环境变量。<br />
 以笔者GOPATH=E:\develop\golang 为例<br />
 <pre>	
-	mkdir -p E:\develop\golang\src
-	cd /d E:\develop\golang\src
+mkdir -p E:\develop\golang\src
+cd /d E:\develop\golang\src
 </pre>
 将本工程下载到src目录下，则 E:\develop\golang\src\iapps.site，此目录即为程序脚本工作目录
 ## 通过github下载运行
@@ -50,52 +50,46 @@ go run app.go
 双击 win_client_start.bat 运行压测客户端（如需调整参数，请自行修改，或者直接运行下面的命令）<br />
 或者命令行模式下，cd 当前目录输入以下命令:（开启10000个客户端连接，每秒并发200个）<br />
 <pre>
-	
-	go run app.go -connect localhost:9001 -count 10000 -concurrent 200
-	
+go run app.go -connect localhost:9001 -count 10000 -concurrent 200	
 </pre>
 * on Linux
 <pre>
-	
-	cd iapps.site <br />
-	sh server_start.sh  // 启动服务器前台运行，Ctrl+C 终止运行 <br />
-
+cd iapps.site <br />
+sh server_start.sh  // 启动服务器前台运行，Ctrl+C 终止运行 <br />
 </pre>
 注意：上述脚本为先编译源码，再运行方式。方便修改配置参数后，重新运行。
 
 ## 配置常量说明
 常量配置文件目录： iapps.site/common/common.go <br/>
 可根据压测数据调整下列参数。
-<pre>
-	
-	// PlayerManager const config
-	const (
-		// max online player count 
-		// 最大同时在线人数,达到最大在线后，不再消费登录队列消息，除非有玩家退出（这个时间关系，尚未模拟）
-		MaxOnline int32 = 1000
-	)
-	
-	// QueueService const config
-	const (
-		// tick milliseconds
-		TickInterval = int64(100)
-		// queue service channel capacity  
-		// 登录排队队列容量，超出容量则直接给客户端提示 queue full
-		QueueCapacity = int(500)
-		// check interval to broadcast position in queue. in seconds
-		// 登录队列扫描时间间隔：秒。对于排队的客户端，发生变化后，定期同步给客户端排队的位置
-		QueueCheckInterval = int64(3)
-	)
+<pre>	
+// PlayerManager const config
+const (
+	// max online player count 
+	// 最大同时在线人数,达到最大在线后，不再消费登录队列消息，除非有玩家退出（这个时间关系，尚未模拟）
+	MaxOnline int32 = 1000
+)
 
-	// TcpServer const
-	const (
-		// Listen port
-		Port = ":9001"
-		// simulate validate token sleep time in milliseconds
-		// 模拟登录Token校验的时间消耗：毫秒
-		ValidateTokenSleep = int64(100)
-	)
-	
+// QueueService const config
+const (
+	// tick milliseconds
+	TickInterval = int64(100)
+	// queue service channel capacity  
+	// 登录排队队列容量，超出容量则直接给客户端提示 queue full
+	QueueCapacity = int(500)
+	// check interval to broadcast position in queue. in seconds
+	// 登录队列扫描时间间隔：秒。对于排队的客户端，发生变化后，定期同步给客户端排队的位置
+	QueueCheckInterval = int64(3)
+)
+
+// TcpServer const
+const (
+	// Listen port
+	Port = ":9001"
+	// simulate validate token sleep time in milliseconds
+	// 模拟登录Token校验的时间消耗：毫秒
+	ValidateTokenSleep = int64(100)
+)	
 </pre>
 
 ## 压力测试
