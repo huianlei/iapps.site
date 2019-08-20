@@ -35,7 +35,7 @@ Go1.9+
 git clone https://github.com/huianlei/iapps.site.git
 通过工程界面Clone or Download下载 zip 包
 https://github.com/huianlei/iapps.site/archive/master.zip
-确保加压后的目录为iapps.site
+确保加压后的目录为iapps.site  （源码import 语句中有该目录设定）
 windows下完整路径为：%GOPATH%\src\iapps.site
 linux 下完整路径为：$GOPATH/src/iapps.site
 GOPATH 为上文提到的环境变量
